@@ -10,21 +10,6 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="fontawesome/css/all.min.css" rel="stylesheet" />
     <link href="css/templatemo-diagoona.css" rel="stylesheet" />
-    <style>
-        .confirmation-message {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.6s ease-in-out;
-            margin-top: 20px;
-            color: #0f0;
-            font-weight: bold;
-        }
-
-        .confirmation-message.show {
-            display: block;
-            opacity: 1;
-        }
-    </style>
 </head>
 
 <body>
@@ -33,10 +18,8 @@
             <div class="tm-row pt-4">
                 <div class="tm-col-left">
                     <div class="tm-site-header media">
-                  
                         <div class="media-body">
                             <h1 class="tm-sitename text-uppercase">snps</h1>
-                         
                         </div>
                     </div>
                 </div>
@@ -65,26 +48,8 @@
                     <section class="tm-content tm-contact">
                         <h2 class="mb-4 tm-content-title">Kontakta oss</h2>
                         <p class="mb-4"><strong>E-post:</strong> <a href="mailto:kontakt@snps.se">kontakt@snps.se</a></p>
-                        <p class="mb-5">Har du frågor? Fyll i formuläret nedan så återkommer vi snarast.</p>
-
-                        <form id="contact-form">
-                            <div class="form-group mb-4">
-                                <input type="text" name="name" class="form-control" placeholder="Ditt namn" required />
-                            </div>
-                            <div class="form-group mb-4">
-                                <input type="email" name="email" class="form-control" placeholder="Din e-post" required />
-                            </div>
-                            <div class="form-group mb-5">
-                                <textarea rows="6" name="message" class="form-control" placeholder="Meddelande..." required></textarea>
-                            </div>
-                            <div class="text-right">
-                                <button type="submit" class="btn btn-big btn-primary">Skicka</button>
-                            </div>
-                        </form>
-
-                        <div id="confirmation" class="confirmation-message">
-                            Tack! Ditt meddelande har skickats.
-                        </div>
+                        <p class="mb-4"><strong>Telefon:</strong> <a href="tel:0739852506">073 985 2506</a></p>
+                        <p class="mb-5">Du är varmt välkommen att höra av dig via e-post eller telefon.</p>
                     </section>
                 </main>
             </div>
@@ -100,7 +65,6 @@
             </div>
             <div class="tm-col-right tm-col-footer">
                 <footer class="tm-site-footer text-right">
-                   
                 </footer>
             </div>
         </div>
@@ -115,31 +79,5 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.backstretch.min.js"></script>
     <script src="js/templatemo-script.js"></script>
-    <script>
-        document.getElementById("contact-form").addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const form = e.target;
-            const data = new FormData(form);
-
-            fetch("https://formsubmit.co/ajax/kontakt@snps.se", {
-                method: "POST",
-                headers: { 'Accept': 'application/json' },
-                body: data
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success === "true" || data.success) {
-                    form.reset();
-                    const confirmation = document.getElementById("confirmation");
-                    confirmation.classList.add("show");
-                }
-            })
-            .catch(error => {
-                alert("Ett fel uppstod. Försök igen senare.");
-                console.error(error);
-            });
-        });
-    </script>
 </body>
 </html>
